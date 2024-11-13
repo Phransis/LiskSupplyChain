@@ -103,6 +103,34 @@
 				"inputs": [
 					{
 						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "location",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "desc",
+						"type": "string"
+					},
+					{
+						"internalType": "enum LiskSupplyChain.Roles",
+						"name": "_role",
+						"type": "uint8"
+					}
+				],
+				"name": "createCustomer",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
 						"name": "_name",
 						"type": "string"
 					},
@@ -135,6 +163,75 @@
 				"name": "createProduct",
 				"outputs": [],
 				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getTotalUsers",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "userId",
+						"type": "uint256"
+					}
+				],
+				"name": "getUser",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "id",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "address",
+								"name": "userAddress",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "location",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "description",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "date",
+								"type": "uint256"
+							},
+							{
+								"internalType": "enum LiskSupplyChain.Roles",
+								"name": "role",
+								"type": "uint8"
+							}
+						],
+						"internalType": "struct LiskSupplyChain.User",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -203,6 +300,11 @@
 								"type": "string"
 							},
 							{
+								"internalType": "uint256",
+								"name": "date",
+								"type": "uint256"
+							},
+							{
 								"internalType": "enum LiskSupplyChain.Status",
 								"name": "status",
 								"type": "uint8"
@@ -267,6 +369,11 @@
 						"type": "string"
 					},
 					{
+						"internalType": "uint256",
+						"name": "date",
+						"type": "uint256"
+					},
+					{
 						"internalType": "enum LiskSupplyChain.Status",
 						"name": "status",
 						"type": "uint8"
@@ -291,6 +398,87 @@
 				"name": "updateProductStatus",
 				"outputs": [],
 				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "userCount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "users",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "userAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "location",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "description",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "date",
+						"type": "uint256"
+					},
+					{
+						"internalType": "enum LiskSupplyChain.Roles",
+						"name": "role",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "productId",
+						"type": "uint256"
+					}
+				],
+				"name": "viewStatus",
+				"outputs": [
+					{
+						"internalType": "enum LiskSupplyChain.Status",
+						"name": "status",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			}
 		],
@@ -322,11 +510,11 @@
 	},
 	"sources": {
 		"contracts/LiskSupplyChain.sol": {
-			"keccak256": "0xe99bdc2105a214ccdd5075a9d5cfc4ddd7bdb5a5bbd929a67a946d6ef9ea9c93",
+			"keccak256": "0x343fc04def72351b514d23b73aa6bec5afa54294948cad39c9da203886d84434",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://d0a664f4a8d3a9c8c424cf74e70434d630a8867c85cc51f99701ba01227b3e84",
-				"dweb:/ipfs/QmUM5N1Yductg7BGr2H5y8DWurbCNFYTMuu7MaVjuJBdu9"
+				"bzz-raw://4741898bc1d1124720c833fdd97a0fceb652fa821f5adb689846cadb5b3a0f3b",
+				"dweb:/ipfs/QmZT9qmeAQ115127YBDT5X7RK38rTtoByWFxNdoiXgNTJT"
 			]
 		}
 	},
