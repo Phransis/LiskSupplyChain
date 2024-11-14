@@ -11,6 +11,31 @@
 					{
 						"indexed": false,
 						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "userAddress",
+						"type": "address"
+					}
+				],
+				"name": "CustomerCreated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
 						"name": "productId",
 						"type": "uint256"
 					},
@@ -548,11 +573,11 @@
 	},
 	"sources": {
 		"contracts/LiskSupplyChain.sol": {
-			"keccak256": "0x421d9f55527c525ee2a3f8bbcc83efa4d64d1be2e8215f6b6f94e244b067e603",
+			"keccak256": "0x80b086063e8d6bcd66ea8fd376c4f2c8964e8f145b700454fbbb36e0af939e31",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://fdbd582a180c7569fb28aa33d53ee6d365d01acf388f568bbf7c13703a655c72",
-				"dweb:/ipfs/QmZX4i9MWeVNG3wvx5DGTC2316YQnDFhqoVR4BbnSeYfKP"
+				"bzz-raw://0a352164a8268c0caaafc717885a609bca38265ce8c3c7e4ad923e8283849c56",
+				"dweb:/ipfs/QmPzkmGQctK2qdkhGev7BgNNqX88vxDHAJ1LBj4Px4HjQr"
 			]
 		}
 	},
