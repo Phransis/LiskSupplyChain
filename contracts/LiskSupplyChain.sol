@@ -13,6 +13,7 @@ contract LiskSupplyChain{
     event ProductCreated(uint256 productId, string name, address owner);
     event ProductStatusUpdated(uint256 productId, Status status);
     event OwnershipTransferred(uint256 productId, address newOwner);
+    event CustomerCreated(uint256 id, string name, address userAddress);
 
     //Defne the structure of a Product
     struct Product {
@@ -44,13 +45,25 @@ contract LiskSupplyChain{
     //Define variables
     uint256 public  productCount = 0;
     uint256 public userCount = 0;
-    address public  ProductOwner;
+    address public  ProductOwner = msg.sender;
     mapping (uint256 => Product) public  products;
     mapping (uint256 => User) public users;
 
     //Modifier for Role-Based Access
     modifier onlyOwner(uint _productId){
         require(products[_productId].owner == msg.sender, "Not Owner");
+        _;
+    }
+
+    //Modifier to check if a Product ID exists
+    modifier isProductIdValid(uint productId){
+        require(productId > 0 && productId <= productCount, "Product ID does not exist");
+        _;
+    }
+    
+    //Modifier to check if a User ID exists
+    modifier isUserIdvalid(uint256 userId){
+        require(userId > 0 && userId <= userCount, "User ID does not exist");
         _;
     }
 
@@ -73,25 +86,26 @@ contract LiskSupplyChain{
     }
 
     //Update a Product Status
-    function updateProductStatus(uint productId, Status status) public onlyOwner(productId) {
+    function updateProductStatus(uint productId, Status status) public onlyOwner(productId) isProductIdValid(productId) {
         products[productId].status = status;
         emit ProductStatusUpdated(productId, status);
     }
 
     //Get product details
-    function productDetails(uint _productId) public view returns (Product memory){
+    function productDetails(uint _productId) isProductIdValid(_productId) public view returns (Product memory){
         return products[_productId];
     }
 
     //Transfer Ownership of a Product
-    function changeOwnership(uint productId, address newOwner) public onlyOwner(productId){
+    function changeOwnership(uint productId, address newOwner) public onlyOwner(productId)  isProductIdValid(productId){
+        require(newOwner == msg.sender, "New Owner can not be the current owner");
         products[productId].owner = newOwner;
 
         emit OwnershipTransferred(productId, newOwner);
     }
 
     //View a products Status
-    function viewStatus(uint256 productId) public view returns (Status status){
+    function viewStatus(uint256 productId)  isProductIdValid(productId) public view returns (Status status){
         return products[productId].status;
     }
 
@@ -107,10 +121,11 @@ contract LiskSupplyChain{
             date: block.timestamp,
             role: _role
         });
+        emit CustomerCreated(userCount, name, msg.sender);
     }
 
     //Retreiving a User by ID
-    function getUser(uint256 userId) public view returns (User memory){
+    function getUser(uint256 userId) isUserIdvalid(userId) public view returns (User memory){
         return users[userId];
     }
 
@@ -126,4 +141,19 @@ contract LiskSupplyChain{
     //     }
     //     return allCustomers;
     // }
+
+    function checkStatus(Status _status) public pure returns(string memory){
+        if (_status == Status.Created) return "Created";
+        if (_status == Status.Shipped) return "Shipped";
+        if (_status == Status.Received) return "Received";
+        if (_status == Status.Sold) return "Sold";
+        return "Unknown";
+    }
+
+    function productStatus(uint256 productId) isProductIdValid(productId) public view returns(string memory){
+        if (products[productId].status == Status.Created) return "Created";
+        if (products[productId].status == Status.Shipped) return "Shipped";
+        if (products[productId].status == Status.Received) return "Received";
+        return "Unknown";
+    }
 }
