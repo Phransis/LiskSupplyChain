@@ -573,11 +573,11 @@
 	},
 	"sources": {
 		"contracts/LiskSupplyChain.sol": {
-			"keccak256": "0x80b086063e8d6bcd66ea8fd376c4f2c8964e8f145b700454fbbb36e0af939e31",
+			"keccak256": "0xb49930eb4de5665bca38353a0d598be8956877c05bcd046d78fbc94a359637b1",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://0a352164a8268c0caaafc717885a609bca38265ce8c3c7e4ad923e8283849c56",
-				"dweb:/ipfs/QmPzkmGQctK2qdkhGev7BgNNqX88vxDHAJ1LBj4Px4HjQr"
+				"bzz-raw://29a369f6e357704e55577f32d306dc02e4d32481c7cbc6ff872dd82c281795ef",
+				"dweb:/ipfs/QmfBbgrx2AvMpCgGvEW6jeAygenY6uPiN4FDErAdqZGcAH"
 			]
 		}
 	},

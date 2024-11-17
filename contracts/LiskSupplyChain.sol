@@ -98,6 +98,7 @@ contract LiskSupplyChain{
 
     //Transfer Ownership of a Product
     function changeOwnership(uint productId, address newOwner) public onlyOwner(productId)  isProductIdValid(productId){
+        require(newOwner != address(0), "New owner should not be the zero address");
         require(newOwner == msg.sender, "New Owner can not be the current owner");
         products[productId].owner = newOwner;
 
