@@ -279,6 +279,25 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "prodStatus",
+				"outputs": [
+					{
+						"internalType": "enum LiskSupplyChain.Status",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "productCount",
 				"outputs": [
@@ -536,9 +555,9 @@
 				"name": "viewStatus",
 				"outputs": [
 					{
-						"internalType": "enum LiskSupplyChain.Status",
-						"name": "status",
-						"type": "uint8"
+						"internalType": "string",
+						"name": "",
+						"type": "string"
 					}
 				],
 				"stateMutability": "view",
@@ -573,11 +592,11 @@
 	},
 	"sources": {
 		"contracts/LiskSupplyChain.sol": {
-			"keccak256": "0xb49930eb4de5665bca38353a0d598be8956877c05bcd046d78fbc94a359637b1",
+			"keccak256": "0x4caa079c7cd12431a73a1a8d94efc4d1aaf8742ea53056beebeab8a4c2c297fc",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://29a369f6e357704e55577f32d306dc02e4d32481c7cbc6ff872dd82c281795ef",
-				"dweb:/ipfs/QmfBbgrx2AvMpCgGvEW6jeAygenY6uPiN4FDErAdqZGcAH"
+				"bzz-raw://dc40ce33dc25daa3f4b3dbbabb976607a2aa6f43eef2f5f5c3963e10d91bbd75",
+				"dweb:/ipfs/QmaSWp5jDnx5R3QzwNLZ47KdxFtDJ345EJix8no1TgxGKh"
 			]
 		}
 	},

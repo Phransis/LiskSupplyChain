@@ -1,28 +1,50 @@
-REMIX DEFAULT WORKSPACE
+PROJECT OVERVIEW
 
-Remix default workspace is present when:
-i. Remix loads for the very first time 
-ii. A new workspace is created with 'Default' template
-iii. There are no files existing in the File Explorer
+You are free to clone it and modify it to your use case
 
-This workspace contains 3 directories:
 
-1. 'contracts': Holds three contracts with increasing levels of complexity.
-2. 'scripts': Contains four typescript files to deploy a contract. It is explained below.
-3. 'tests': Contains one Solidity test file for 'Ballot' contract & one JS test file for 'Storage' contract.
+This project is a supply chain system built on the blockchain
+As the need for users to know the history and the trail of the products they patronize increase, there is the need for a system that addresses that.
+And that's what this dApp addresses
 
-SCRIPTS
+This dApp leverages the transperency, immutability, scalability and decentralization bit of blockchain
+    Transperency: anyone can know where a product was manufactured, its manufacturer, transporter, buyer etc.
+    Immutability: the data entered about a product can not be changed.
+    Scalability: as more manufacturers, products, users, transporters, retailer etc come on board, the efficiency and effectiveness of the dApp won't be affected
+    Decentralization: the smart contract is being run by several nodes which prevents the dApp from being attacked
 
-The 'scripts' folder has four typescript files which help to deploy the 'Storage' contract using 'web3.js' and 'ethers.js' libraries.
+SMART CONTRACT FUNCTIONS
 
-For the deployment of any other contract, just update the contract's name from 'Storage' to the desired contract and provide constructor arguments accordingly 
-in the file `deploy_with_ethers.ts` or  `deploy_with_web3.ts`
+1. createProduct():
+This function takes in the required parameters that a product must meet to it can be created.
 
-In the 'tests' folder there is a script containing Mocha-Chai unit tests for 'Storage' contract.
+2. updateProductStatus():
+When a product is created, by default its status is "Created", this function is then used to update the status of the product depending on which stage it's at
+ie. Created, Shipped, Received and Sold
 
-To run a script, right click on file name in the file explorer and click 'Run'. Remember, Solidity file must already be compiled.
-Output from script will appear in remix terminal.
+3. productDetails():
+By passing the product Id as an arguement to this function, we are able to see the entire details of a product.
+eg. Its name, id, status and timestamp
 
-Please note, require/import is supported in a limited manner for Remix supported modules.
-For now, modules supported by Remix are ethers, web3, swarmgw, chai, multihashes, remix and hardhat only for hardhat.ethers object/plugin.
-For unsupported modules, an error like this will be thrown: '<module_name> module require is not supported by Remix IDE' will be shown.
+4. productStatus():
+This function returns the status of a product by passing the product Id as a parameter
+eg. Created, Shipped etc.
+
+5. changeOwnership():
+By passing an address to this function, that address becomes the new owner of the product
+
+6. viewStatus():
+This function helps us to see the status of a product by passing a product Id to it
+
+7. createCustomer():
+When we want to create a user we use this function by passing in the rigt required parameters
+
+8. getUser():
+Pass a user Is to this function if you want to view the details of a user
+
+9. getTotalUsers():
+This function lets us know the total number of registered users on this dApp
+
+
+
+Made with love for the community
